@@ -1,5 +1,5 @@
 public class $07TransType {
-    //실수 표현범위 > 정수 표현범위위
+    //실수 표현범위 > 정수 표현범위
     public static void main(String[] args) {
         int total = 297;        // 총점
         int stNum = 4;          // 학생수
