@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class $04Array {
     public static void main(String[] args) throws Exception {
-        final int ST_NUM = 7;       // 변수->상수(변경불가가)
+        final int ST_NUM = 7;       // 변수->상수(변경불가)
 
         Scanner sc = new Scanner(System.in);
 
