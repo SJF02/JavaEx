@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
-public class $02Method {
+public class $03Method {
 
-    // op, num0, num1은 main의 op, num0, num1과 소속이 다르다.
-    // main에서 호출하면 값만 전달되는 것이다.
     public static int calcArith(String op, int num0, int num1){
         int result = 0;
 
@@ -31,24 +29,29 @@ public class $02Method {
         return result;
     }
 
-    // void는 처리만 하고 아무것도 return하지 않는 의미
-    // viewResult의 int result와 main의 int result 전혀 무관, 서로 독립
     public static void viewResult(int result){
         System.out.println("결과값은 " + result + "입니다.");
     }
 
-    public static void main(String[] args) throws Exception {
-        // 사칙연산 메서드 분리
+    public static int inputNum(Scanner sc, int order){
+        System.out.print(order + "번째 정수 입력 >> ");
+        int num = sc.nextInt();
+        return num;
+    }
 
-        /*사칙연산 입력-연산-출력 */
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("1번째 정수 입력 >> ");
-        int num0 = sc.nextInt();
-        System.out.print("2번째 정수 입력 >> ");
-        int num1 = sc.nextInt();
+    public static String inputStr(Scanner sc){
         System.out.print("연산자 입력(+ - * / %) >> ");
         String op = sc.next();
+        return op;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num0 = inputNum(sc, 1);
+        int num1 = inputNum(sc, 2);
+        String op = inputStr(sc);
         int result = 0;
 
         result = calcArith(op, num0, num1);     // 사칙 연산
