@@ -1,8 +1,6 @@
 // 8. 정수 배열 5개를 할당하고
 //    Arrays.sort를 사용하지 말고 최소값과 최대값을 얻으세요
 
-import java.util.Arrays;
-
 public class $08Resolve {
     public static void main(String[] args) {
         int[] arr = {10, 99, 1, 78, 5};
