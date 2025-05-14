@@ -18,7 +18,7 @@ public class $05Resolve {
 
         for(int i=0;i<num;i++){
 
-            // 각 row마다 *이 별개찍어야 하는지 
+            // 각 row마다 *이 별 몇개 찍어야 하는지 
             for(int j=0;j<(i+1);j++)
                 star += "*";
             System.out.println(star);
