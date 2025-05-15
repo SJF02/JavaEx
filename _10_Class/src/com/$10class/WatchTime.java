@@ -1,5 +1,9 @@
 package com.$10class;
 
+/* [메서드 오버로딩]
+ * java의 메서드는 매개변수가 다를 경우 동일한 이름을 가질 수 있다.
+ * 컴파일러는 매개변수 값에 따라 호출하는 메서드를 결정할 수 있다.
+ */
 public class WatchTime {
     private int hour, min, sec;
     private String strHour, strMin, strSec;
