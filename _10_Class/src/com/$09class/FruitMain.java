@@ -23,5 +23,16 @@ package com.$09class;
  * 객체 : 설계도를 기반으로 생성된 실체(object, instance)
  */
 public class FruitMain {
+    public static void main(String[] args) {
+        FruitSeller seller = new FruitSeller(20);
+        FruitBuyer buyer = new FruitBuyer(10000);
 
+        seller.showSaleResult();
+        buyer.showBuyResult();
+
+        buyer.buyApple(seller, 2000);
+
+        seller.showSaleResult();
+        buyer.showBuyResult();
+    }
 }
