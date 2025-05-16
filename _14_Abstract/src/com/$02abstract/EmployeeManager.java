@@ -23,19 +23,65 @@ public class EmployeeManager {
         return sel;
     }
     private RegularEmployee creatRegularEmployee(){
+        System.out.print("사번 >> ");
+        String empNo = sc.next();
+        System.out.print("이름 >> ");
+        String empName = sc.next();
+        System.out.print("연봉 >> ");
+        int salary = sc.nextInt();
+        System.out.print("보너스 >> ");
+        int bonus = sc.nextInt();
+        RegularEmployee re = new RegularEmployee(empNo, empName, salary, bonus);
         System.out.println("정규직 사원정보 입력 완료~");
-        return null;
+        return re;
     }
     private TempEmployee creatTempEmployee(){
+        System.out.print("사번 >> ");
+        String empNo = sc.next();
+        System.out.print("이름 >> ");
+        String empName = sc.next();
+        System.out.print("연봉 >> ");
+        int salary = sc.nextInt();
+        System.out.print("계약기간 >> ");
+        int hireYear = sc.nextInt();
+        TempEmployee te = new TempEmployee(empNo, empName, salary, hireYear);
         System.out.println("임시직 사원정보 입력 완료~");
-        return null;
+        return te;
     }
     private PartTimeEmployee creatPartTimeEmployee(){
+        System.out.print("사번 >> ");
+        String empNo = sc.next();
+        System.out.print("이름 >> ");
+        String empName = sc.next();
+        System.out.print("일당 >> ");
+        int dailyPay = sc.nextInt();
+        System.out.print("일한 일수 >> ");
+        int workDay = sc.nextInt();
+        PartTimeEmployee pe = new PartTimeEmployee(empNo, empName, dailyPay, workDay);
         System.out.println("파트타임직 사원정보 입력 완료~");
-        return null;
+        return pe;
     }
     private void viewAllEmployeeInfo(){
+        for(int i=0;i<this.numOfEmp;i++){
+            Employee emp = this.empArr[i];
+            System.out.println(emp);        // emp.toString() 호출됨
+        }
         System.out.println("전체 정보 조회 완료~");
+    }
+    private boolean saveEmployee(Employee emp){
+        boolean isSave = true;
+
+        // 아직 공간의 여유가 있다면
+        if(this.numOfEmp < EMP_NUM){
+            // 배열의 앞공간부터 채워나간다.
+            this.empArr[this.numOfEmp] = emp;
+            this.numOfEmp++;
+            isSave = true;
+        }else{
+            isSave = false;
+        }
+
+        return isSave;
     }
 
     public void run(){
@@ -43,15 +89,16 @@ public class EmployeeManager {
         while(isRun){
             int sel = viewMenu();
 
+            Employee emp = null;
             switch(sel){
                 case EmployeeMenu.REG_EMP:
-                    creatRegularEmployee();
+                    emp = creatRegularEmployee();
                     break;
                 case EmployeeMenu.TEMP_EMP:
-                    creatTempEmployee();
+                    emp = creatTempEmployee();
                     break;
                 case EmployeeMenu.PART_EMP:
-                    creatPartTimeEmployee();
+                    emp = creatPartTimeEmployee();
                     break;
                 case EmployeeMenu.ALL_INFO:
                     viewAllEmployeeInfo();
@@ -62,6 +109,15 @@ public class EmployeeManager {
                 default:
                     System.out.println("해당 항목이 존재하지 않습니다!!!");
                     break;
+            }
+
+            // emp객체가 존재한다면
+            if(emp != null){
+                boolean isSave = saveEmployee(emp);
+                if(!isSave)
+                    System.out.println("더 이상 저장 공간이 없습니다.");
+                else
+                    System.out.println("잘 저장되었습니다~");
             }
 
             System.out.println();
