@@ -1,4 +1,11 @@
 package com.$03interface.carmain;
+
+import com.$03interface.factory.FordCar;
+import com.$03interface.factory.KiaCar;
+import com.$03interface.factory.ToyotaCar;
+import com.$03interface.order.CarTest;
+import com.$03interface.order.ICar;
+
 /*
  * [시나리오]
  * 1. 나의 회사는 자동차 산업에 진출하기 위해 OEM 주문생산요청을 하기로 결정했다.
@@ -21,6 +28,18 @@ package com.$03interface.carmain;
  */
 public class CarMain {
     public static void main(String[] args) {
-        
+        CarTest carTest = new CarTest();
+        ICar[] carArr = {new FordCar(), new KiaCar(), new ToyotaCar()};
+
+        for(int i=0;i<carArr.length;i++){
+            carTest.setTest_num(5);
+            carTest.setCar(carArr[i]);      // 의존성 주입(DI)
+
+            carTest.onOffTest();
+            carTest.speedTest();
+            carTest.footBreakTest();
+            carTest.driveTest();
+            System.out.println("----------------------------------");
+        }
     }
 }

@@ -20,6 +20,10 @@ public class CarTest {
         this.car = car;
     }
 
+    public CarTest(){
+        this.test_num = 3;
+    }
+
     // ICar의 자식 객체가 생성자를 통해 주입된다(DI)
     public CarTest(ICar car, int test_num){
         this.car = car;

@@ -1,24 +1,31 @@
 package com.$03interface.factory;
 
-// 다른 패키지의 선언을 접근할 때
-import com.$03interface.order.ICar;
+import com.$03interface.order.ParentCar;
 
-public class FordCar implements ICar{
+public class FordCar extends ParentCar{
 
     @Override
     public void turnOn() {
+        System.out.println(this.getClass() + " - The engine starts well~");
+        delay();
     }
 
     @Override
     public void turnOff() {
+        System.out.println(this.getClass() + " - The start-off works well~");
+        delay();
     }
 
     @Override
     public void accel() {
+        System.out.println(this.getClass() + " - The accelerator accelerates well~");
+        delay();
     }
     
     @Override
     public void footBreak() {
+        System.out.println(this.getClass() + " - Have a good brake stop well~");
+        delay();
     }
 
 }
